@@ -1,0 +1,17 @@
+node_modules
+dist
+dist-ssr
+*.local
+
+# Entorno: nunca subir claves
+.env
+.env.local
+.env.*.local
+
+# Editor / SO
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+*.log

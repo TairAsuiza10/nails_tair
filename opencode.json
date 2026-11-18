@@ -1,0 +1,10 @@
+{
+  "mcp": {
+    "servers": {
+      "supabase": {
+        "type": "remote",
+        "url": "https://mcp.supabase.com/mcp?project_ref=ocwnfnothrgfvnlvdrkw&read_only=true&features=docs%2Cdatabase%2Cdevelopment"
+      }
+    }
+  }
+}

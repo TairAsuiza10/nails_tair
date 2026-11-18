@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+
+    /* Modern Blush · espejo de los tokens de tailwind.config.js para CSS puro */
+    --glowly-porcelain: #fff7f8;
+    --glowly-nude: #f4dde5;
+    --glowly-blush: #e6a8be;
+    --glowly-berry: #c66d91;
+    --glowly-plum: #633b53;
+    --glowly-plum-deep: #4e2d41;
+    --glowly-plum-soft: #7a5a6c;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Foco visible siempre, con el rosa berry de la identidad */
+  :focus-visible {
+    outline: 2px solid var(--glowly-berry);
+    outline-offset: 2px;
+    border-radius: theme('borderRadius.sm');
+  }
+
+  ::selection {
+    background: var(--glowly-nude);
+    color: var(--glowly-plum);
+  }
+
+  /* Evita el zoom automático en iOS al enfocar campos */
+  @supports (-webkit-touch-callout: none) {
+    input,
+    select,
+    textarea {
+      font-size: max(16px, 1em);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+    font-feature-settings: 'liga';
+    user-select: none;
+  }
+
+  .icon-filled {
+    font-variation-settings:
+      'FILL' 1,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+  }
+
+  /* Contenedor translúcido nivel 2 (barras flotantes) */
+  .glass-panel {
+    background: rgba(255, 247, 248, 0.88);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  .tap-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
